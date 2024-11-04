@@ -6,7 +6,7 @@
   <link href="https://hyhcrh.github.io/atom.xml" rel="self"/>
   
   <link href="https://hyhcrh.github.io/"/>
-  <updated>2024-10-31T07:17:50.361Z</updated>
+  <updated>2024-11-04T07:31:42.286Z</updated>
   <id>https://hyhcrh.github.io/</id>
   
   <author>
@@ -17,16 +17,16 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://hyhcrh.github.io/2024/10/31/hello-world/"/>
-    <id>https://hyhcrh.github.io/2024/10/31/hello-world/</id>
-    <published>2024-10-31T05:03:41.041Z</published>
-    <updated>2024-10-31T07:17:50.361Z</updated>
+    <title>Welcome</title>
+    <link href="https://hyhcrh.github.io/2024/11/04/welcome/"/>
+    <id>https://hyhcrh.github.io/2024/11/04/welcome/</id>
+    <published>2024-11-04T07:17:50.000Z</published>
+    <updated>2024-11-04T07:31:42.286Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is the very first post. </p><span id="more"></span><p>Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这才是真正的第一篇博客（笑</p><span id="more"></span><h2 id="Hi-there"><a href="#Hi-there" class="headerlink" title="Hi there!"></a>Hi there!</h2><p>在下 hyhcrh, 是高中生. 在这里会分享一些笔记和生活见闻.<br>Dump 是调试中常用的功能, 里面包含了核心状态与其他必要信息. 大概取名的意思就在这里.<br>页面底部的图标包含了联系方式, 可以点开看看~<br>希望这里的内容能给你, 匿名的访客, 一些帮助呢.</p><hr><h2 id="Trivia-杂事"><a href="#Trivia-杂事" class="headerlink" title="Trivia &#x2F; 杂事"></a>Trivia &#x2F; <code>杂事</code></h2><p>想到再写啦</p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is the very first post. &lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;这才是真正的第一篇博客（笑&lt;/p&gt;</summary>
     
     
     
