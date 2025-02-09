@@ -6,7 +6,7 @@
   <link href="https://hyhcrh.github.io/atom.xml" rel="self"/>
   
   <link href="https://hyhcrh.github.io/"/>
-  <updated>2024-11-04T07:31:42.286Z</updated>
+  <updated>2025-02-09T07:57:33.699Z</updated>
   <id>https://hyhcrh.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android Studio 添加 Vector Asset 不显示 / 只显示少量图标 怎么办 ?</title>
+    <link href="https://hyhcrh.github.io/2025/02/09/android-studio-icons-metadata/"/>
+    <id>https://hyhcrh.github.io/2025/02/09/android-studio-icons-metadata/</id>
+    <published>2025-02-09T07:12:19.000Z</published>
+    <updated>2025-02-09T07:57:33.699Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>删除 <code>&lt;SDK文件夹&gt;/icons/material/icons_metadata.txt</code> 就好了.</p><span id="more"></span><hr><p>打开 SDK 文件夹 ( <code>~/Android/Sdk</code> ), 进入 <code>icons/material/</code>, 删除 <code>icons_metadata.txt</code> 即可解决</p><p>附赠 Windows &#x2F; macOS 默认 SDK 位置:</p><table><thead><tr><th>系统</th><th>默认 SDK 位置</th></tr></thead><tbody><tr><td>Windows</td><td><code>%USERPROFILE\Android\Sdk\</code><br /><code>C:\Users\&lt;用户名&gt;\Android\Sdk\</code></td></tr><tr><td>macOS</td><td><code>~/Library/Android/sdk</code> <br /><code>/Users/&lt;用户名&gt;/Library/Android/sdk</code></td></tr></tbody></table><p>来自 <a href="https://stackoverflow.com/questions/64382564/how-i-fix-nothing-to-show-in-my-vector-asset-in-android-studio">https://stackoverflow.com/questions/64382564/how-i-fix-nothing-to-show-in-my-vector-asset-in-android-studio</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;删除 &lt;code&gt;&amp;lt;SDK文件夹&amp;gt;/icons/material/icons_metadata.txt&lt;/code&gt; 就好了.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Development" scheme="https://hyhcrh.github.io/categories/Development/"/>
+    
+    <category term="Android" scheme="https://hyhcrh.github.io/categories/Development/Android/"/>
+    
+    <category term="FAQ" scheme="https://hyhcrh.github.io/categories/FAQ/"/>
+    
+    
+    <category term="Android Studio" scheme="https://hyhcrh.github.io/tags/Android-Studio/"/>
+    
+    <category term="Android" scheme="https://hyhcrh.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Welcome</title>
     <link href="https://hyhcrh.github.io/2024/11/04/welcome/"/>
     <id>https://hyhcrh.github.io/2024/11/04/welcome/</id>
     <published>2024-11-04T07:17:50.000Z</published>
-    <updated>2024-11-04T07:31:42.286Z</updated>
+    <updated>2024-11-05T11:47:35.810Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这才是真正的第一篇博客（笑</p><span id="more"></span><h2 id="Hi-there"><a href="#Hi-there" class="headerlink" title="Hi there!"></a>Hi there!</h2><p>在下 hyhcrh, 是高中生. 在这里会分享一些笔记和生活见闻.<br>Dump 是调试中常用的功能, 里面包含了核心状态与其他必要信息. 大概取名的意思就在这里.<br>页面底部的图标包含了联系方式, 可以点开看看~<br>希望这里的内容能给你, 匿名的访客, 一些帮助呢.</p><hr><h2 id="Trivia-杂事"><a href="#Trivia-杂事" class="headerlink" title="Trivia &#x2F; 杂事"></a>Trivia &#x2F; <code>杂事</code></h2><p>想到再写啦</p>]]></content>
     
