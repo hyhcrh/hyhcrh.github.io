@@ -6,7 +6,7 @@
   <link href="https://hyhcrh.top/atom.xml" rel="self"/>
   
   <link href="https://hyhcrh.top/"/>
-  <updated>2025-02-09T10:17:42.534Z</updated>
+  <updated>2025-02-09T12:41:51.531Z</updated>
   <id>https://hyhcrh.top/</id>
   
   <author>
@@ -17,16 +17,16 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Android Studio 添加 Vector Asset 不显示 / 只显示少量图标 怎么办 ?</title>
+    <title>Android Studio 添加 Vector Asset 不显示 / 只显示少量图标 怎么办?</title>
     <link href="https://hyhcrh.top/2025/02/09/android-studio-icons-metadata/"/>
     <id>https://hyhcrh.top/2025/02/09/android-studio-icons-metadata/</id>
     <published>2025-02-09T07:12:19.000Z</published>
-    <updated>2025-02-09T10:17:42.534Z</updated>
+    <updated>2025-02-09T12:41:51.531Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>删除 <code>&lt;SDK文件夹&gt;/icons/material/icons_metadata.txt</code> 就好了.</p><span id="more"></span><hr><p>打开 SDK 文件夹 ( <code>~/Android/Sdk</code> ), 进入 <code>icons/material/</code>, 删除 <code>icons_metadata.txt</code> 即可解决</p><p>附赠 Windows &#x2F; macOS 默认 SDK 位置:</p><table><thead><tr><th>系统</th><th>默认 SDK 位置</th></tr></thead><tbody><tr><td>Windows</td><td><code>%USERPROFILE\Android\Sdk\</code><br /><code>C:\Users\&lt;用户名&gt;\Android\Sdk\</code></td></tr><tr><td>macOS</td><td><code>~/Library/Android/sdk</code> <br /><code>/Users/&lt;用户名&gt;/Library/Android/sdk</code></td></tr></tbody></table><p>来自 <a href="https://stackoverflow.com/questions/64382564/how-i-fix-nothing-to-show-in-my-vector-asset-in-android-studio">https://stackoverflow.com/questions/64382564/how-i-fix-nothing-to-show-in-my-vector-asset-in-android-studio</a></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><code>&lt;SDK文件夹&gt;/icons/material/icons_metadata.txt</code> 的锅</p><span id="more"></span><hr><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol><li>关闭 Vector Asset 窗口.</li><li>打开 SDK 文件夹 ( <code>~/Android/Sdk</code> ), 进入 <code>icons/material/</code>, 删除 <code>icons_metadata.txt</code> .</li><li>打开 Vector Asset 窗口, 等待其生成图标.</li><li><strong>窗口应当生成很多图标</strong>. 如果还是没有 &#x2F; 很少, 那么可以关闭这个页面了.</li><li>此时把 <code>icons_metadata.txt</code> 设为所有人只读即可.</li></ol><p>附赠 Windows &#x2F; macOS 默认 SDK 位置:</p><table><thead><tr><th>系统</th><th>默认 SDK 位置</th></tr></thead><tbody><tr><td>Windows</td><td><code>%USERPROFILE\Android\Sdk\</code><br /><code>C:\Users\&lt;用户名&gt;\Android\Sdk\</code></td></tr><tr><td>macOS</td><td><code>~/Library/Android/sdk</code> <br /><code>/Users/&lt;用户名&gt;/Library/Android/sdk</code></td></tr></tbody></table><p>来自 <a href="https://stackoverflow.com/questions/64382564/how-i-fix-nothing-to-show-in-my-vector-asset-in-android-studio">https://stackoverflow.com/questions/64382564/how-i-fix-nothing-to-show-in-my-vector-asset-in-android-studio</a></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;删除 &lt;code&gt;&amp;lt;SDK文件夹&amp;gt;/icons/material/icons_metadata.txt&lt;/code&gt; 就好了.&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;&lt;code&gt;&amp;lt;SDK文件夹&amp;gt;/icons/material/icons_metadata.txt&lt;/code&gt; 的锅&lt;/p&gt;</summary>
     
     
     
@@ -44,18 +44,20 @@
   </entry>
   
   <entry>
-    <title>welcome</title>
+    <title>Hi there!</title>
     <link href="https://hyhcrh.top/2024/11/04/welcome/"/>
     <id>https://hyhcrh.top/2024/11/04/welcome/</id>
     <published>2024-11-04T07:17:50.000Z</published>
-    <updated>2025-02-09T09:55:48.316Z</updated>
+    <updated>2025-02-09T12:42:41.069Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这才是真正的第一篇博客（笑</p><span id="more"></span><h2 id="Hi-there"><a href="#Hi-there" class="headerlink" title="Hi there!"></a>Hi there!</h2><p>在下 hyhcrh, 是高中生. 在这里会分享一些笔记和生活见闻.<br>Dump 是调试中常用的功能, 里面包含了核心状态与其他必要信息. 大概取名的意思就在这里.<br>页面底部的图标包含了联系方式, 可以点开看看~<br>希望这里的内容能给你, 匿名的访客, 一些帮助呢.</p><hr><h2 id="Trivia-杂事"><a href="#Trivia-杂事" class="headerlink" title="Trivia &#x2F; 杂事"></a>Trivia &#x2F; <code>杂事</code></h2><p>想到再写啦</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这才是真正的第一篇博客（笑</p><span id="more"></span><p>在这里会分享一些笔记和生活见闻.<br>Dump 是调试中常用的功能, 里面包含了核心状态与其他必要信息. 大概取名的意思就在这里.</p><hr><h2 id="Trivia-杂事"><a href="#Trivia-杂事" class="headerlink" title="Trivia &#x2F; 杂事"></a>Trivia &#x2F; <code>杂事</code></h2><p>想到再写啦</p>]]></content>
     
     
     <summary type="html">&lt;p&gt;这才是真正的第一篇博客（笑&lt;/p&gt;</summary>
     
     
+    
+    <category term="Trivia" scheme="https://hyhcrh.top/categories/Trivia/"/>
     
     
   </entry>
