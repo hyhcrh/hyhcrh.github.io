@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+    <link rel="icon" href="/images/favicon.jpg">
+  
+  
+  <title>滑轮导轨宽度计算 - 一次计算机性能滥用记录 | hyhcrh-core dump</title>
+  <link rel="canonical" href="https://hyhcrh.top/2025/03/04/computer-perf-od-1/">
+  <meta name="author" content="hyhcrh" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="AI 很实用, DI, DeepSeek, Python" />
+  
+  <meta name="description" content="闲的没事干">
+<meta property="og:type" content="article">
+<meta property="og:title" content="滑轮导轨宽度计算 - 一次计算机性能滥用记录">
+<meta property="og:url" content="https://hyhcrh.top/2025/03/04/computer-perf-od-1/">
+<meta property="og:site_name" content="hyhcrh-core dump">
+<meta property="og:description" content="闲的没事干">
+<meta property="og:locale">
+<meta property="og:image" content="https://hyhcrh.top/2025/03/04/images/computer-perf-od-1/IMG_2128.webp">
+<meta property="og:image" content="https://hyhcrh.top/2025/03/04/images/computer-perf-od-1/IMG_7B791672BEE0-1.webp">
+<meta property="og:image" content="https://hyhcrh.top/2025/03/04/images/computer-perf-od-1/image-20250305122012115.png">
+<meta property="article:published_time" content="2025-03-04T13:01:40.000Z">
+<meta property="article:modified_time" content="2025-03-05T05:18:44.115Z">
+<meta property="article:author" content="hyhcrh">
+<meta property="article:tag" content="AI 很实用">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="DeepSeek">
+<meta property="article:tag" content="DI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hyhcrh.top/2025/03/04/images/computer-perf-od-1/IMG_2128.webp">
+  
+    <link rel="alternate" href="/atom.xml" title="hyhcrh-core dump" type="application/atom+xml">
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kr-core.min.css" media="all"></link>
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/highlight.js/night-eighties.min.css" media="all"></link>
+  
+  <link rel="stylesheet" id="theme-light-css" href="/css/kr-theme/light.min.css" media="all"></link>
+  <link rel="stylesheet" id="theme-dark-css" href="/css/kr-theme/dark.min.css" media="(prefers-color-scheme: dark)"></link>
+  <script src="/js/kr-theme.min.js"></script>
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></link>
+  
+    <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></link>
+  
+  
+    <link rel="stylesheet" href="/vendors/viewerjs@1.11.6/dist/viewer.min.css"></link>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  
+    <script src="/vendors/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+  
+  <!-- 自定义站点横幅和背景 -->
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/images/monterey_dark.webp');
+      }
+      html[data-theme="dark"] .kratos-cover.kratos-cover-2 {
+        background-image: url('/images/monterey_dark.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/images/monterey_light.webp');
+        }
+        html[data-theme="dark"] body.custom-background {
+          background-image: url('/images/monterey_dark.webp');
+        }
+      }
+    
+    
+      .widget-kratos-about .photo-background {
+        background-image: url('/images/banner.jpg');
+      }
+      html[data-theme="dark"] .widget-kratos-about .photo-background {
+        background-image: url('/images/banner.jpg');
+      }
+    
+  </style>
+
+  <!-- 额外的追加注入项 -->
+  
+    <meta name="google-site-verification" content="uKVa7HuXlnLYH3UjlP_h9b1A4oQFBaq1dMntVCvWJWo" />
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    <li>
+                                        
+                                            <a href="/">
+                                        
+                                            
+                                                <i class="fa fa-home"></i>
+                                            
+                                            首页
+                                        </a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            <a href="/archives/">
+                                        
+                                            
+                                                <i class="fa fa-file"></i>
+                                            
+                                            档案馆
+                                        </a>
+                                        
+                                    </li>
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">hyhcrh-core dump</a></div>
+                    <div id="kratos-nav-toggle-wrapper" class="nav-toggle">
+                        <a id="kratos-nav-toggle" class="kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>hyhcrh-core dump</h2> <br />
+                        <span>hyhcrh&#39;s Blog</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+
+
+        
+
+            
+
+            <section class="kr-main-col col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://hyhcrh.top/2025/03/04/computer-perf-od-1/">
+    <div class="kratos-hentry kratos-page-inner clearfix">
+        <header class="kratos-page-header">
+            
+                <h1 class="kratos-page-title text-center" itemprop="name headline">滑轮导轨宽度计算 - 一次计算机性能滥用记录</h1>
+            
+            <ul class="kratos-page-meta text-center">
+                <li><time datetime="2025-03-04T13:01:40.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2025-03-04</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">hyhcrh</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~4.84K
+                        
+                        字
+                    </li>
+                
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-page-content kr-post">
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%9B%A0"><span class="toc-number">1.</span> <span class="toc-text">起因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E5%8C%96%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">抽象化问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%A3%E6%96%B9%E7%A8%8B-%E5%8E%9F%E5%A7%8B"><span class="toc-number">3.</span> <span class="toc-text">用计算机解方程 (原始)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E"><span class="toc-number">3.1.</span> <span class="toc-text">代码说明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="toc-number">3.2.</span> <span class="toc-text">示例输出：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%94%B9%E8%BF%9B"><span class="toc-number">4.</span> <span class="toc-text">程序改进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-number">5.</span> <span class="toc-text">后记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%89%E7%AD%89-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89%E6%83%B3%E5%88%B0-%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E7%94%BB%E5%9B%BE%E7%9A%84%E5%87%BD%E6%95%B0%E5%91%A2"><span class="toc-number">6.</span> <span class="toc-text">等等,
+为什么没有想到 这是一个可以画图的函数呢?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#section"><span class="toc-number">7.</span> <span class="toc-text">😭</span></a></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>闲的没事干</p>
+<span id="more"></span>
+<hr />
+<h2 id="起因">起因</h2>
+<p>竞赛的机械装置 (圆柱) 需要垂直转动, 使用伺服电机控制转向.
+为了使电机运动顺畅, 同时防止装置转到时 碰到离得很近的外侧装置 (圆环柱),
+我采用了 H 槽滑轮 + 木板导轨的形式. 为了确定 选定尺寸的滑轮
+是否可以在导轨上顺畅运行而不会脱轨 / 卡住,
+需要计算导轨在不同宽度下的最小半径.</p>
+<h2 id="抽象化问题">抽象化问题</h2>
+<p>滑轮选择如图所示, 半径 20, 内槽宽 12.</p>
+<figure>
+<img src="../images/computer-perf-od-1/IMG_2128.webp" alt="IMG_2128" />
+<figcaption aria-hidden="true">IMG_2128</figcaption>
+</figure>
+<p>导轨外半径不能超过 55, 同时滑轮决定了最大宽度不能超过 12. 木板厚度为
+3, 无需考虑. 于是用中学的知识, 得到木板在轮子内部的长度为 <span
+class="math inline">\(2\sqrt{111}\)</span>.</p>
+<figure>
+<img src="../images/computer-perf-od-1/IMG_7B791672BEE0-1.webp"
+alt="IMG_7B791672BEE0-1" />
+<figcaption aria-hidden="true">IMG_7B791672BEE0-1</figcaption>
+</figure>
+<p>中午告诉了🐯同学方案, 他很感兴趣, 于是加入一起解决问题 =D
+接着查看俯视图 (两条横线就是滑轮的两个凸轮缘), 设导轨内半径为 x,
+导轨宽度为 y, 得到 <span
+class="math inline">\(x+y=\sqrt{x^2-111}+12\)</span>. <img
+src="../images/computer-perf-od-1/IMG_AC85EF833C4E-1.webp"
+alt="IMG_AC85EF833C4E-1" /></p>
+<p>笑死, 当时两个人都把直径半径搞错了 (更正处).
+<del>而且直到最后一步我都没发现这个问题</del></p>
+<h2 id="用计算机解方程-原始">用计算机解方程 (原始)</h2>
+<p>列不出更多方程了, 🐯同学放弃了解方程. 不过我有 python,
+而且相信力大砖飞 (感觉稍加优化后数据量并不大). 打开电脑问了问 DeepSeek,
+写了个程序.</p>
+<blockquote>
+<p>写一个 python 程序, 要求定义变量x和y, 满足方程"x+y=+12", 且 x+y 小于
+110. 给定 y, 使用指定的方法算出 x 的最小可能值, 精确到两位小数. 方法: 从
+开始, 到 110-y 的所有整数带入 x, 与给定的 y 值算出左右边相差,
+选择最小的那个对应的 x 值的整数区间, 步进 0.001 依次带入计算左右边相差,
+取最小的输出此时的 x 值.</p>
+</blockquote>
+<blockquote>
+<p>为了实现这个程序，我们需要按照以下步骤进行：</p>
+<ol type="1">
+<li>定义变量 <code>x</code> 和 <code>y</code>。</li>
+<li>使用给定的 <code>y</code> 值，从 <code>sqrt(111)</code> 开始到
+<code>110 - y</code> 的所有整数带入
+<code>x</code>，计算方程两边的差值。</li>
+<li>找到差值最小的 <code>x</code> 值的整数区间。</li>
+<li>在这个区间内，以步进 <code>0.001</code> 的方式带入
+<code>x</code>，计算方程两边的差值，找到最小的差值对应的 <code>x</code>
+值。</li>
+<li>输出 <code>x</code> 的最小可能值，精确到两位小数。</li>
+</ol>
+<p>以下是实现这个程序的 Python 代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">find_min_x</span>(<span class="params">y</span>):</span><br><span class="line">   min_diff = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">   best_x = <span class="number">0.0</span></span><br><span class="line">   </span><br><span class="line">   <span class="comment"># 从 sqrt(111) 开始到 110 - y 的所有整数带入 x</span></span><br><span class="line">   start_x = <span class="built_in">int</span>(math.sqrt(<span class="number">111</span>))</span><br><span class="line">   end_x = <span class="built_in">int</span>(<span class="number">110</span> - y)</span><br><span class="line">   </span><br><span class="line">   <span class="comment"># 遍历整数区间</span></span><br><span class="line">   <span class="keyword">for</span> x_int <span class="keyword">in</span> <span class="built_in">range</span>(start_x, end_x + <span class="number">1</span>):</span><br><span class="line">       <span class="comment"># 计算方程两边的差值</span></span><br><span class="line">       left_side = x_int + y</span><br><span class="line">       right_side = math.sqrt(x_int**<span class="number">2</span> - <span class="number">111</span>) + <span class="number">12</span></span><br><span class="line">       diff = <span class="built_in">abs</span>(left_side - right_side)</span><br><span class="line">       </span><br><span class="line">       <span class="comment"># 找到差值最小的 x 值的整数区间</span></span><br><span class="line">       <span class="keyword">if</span> diff &lt; min_diff:</span><br><span class="line">           min_diff = diff</span><br><span class="line">           best_x_int = x_int</span><br><span class="line">   </span><br><span class="line">   <span class="comment"># 在 best_x_int 的附近以步进 0.001 的方式带入 x</span></span><br><span class="line">   <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(best_x_int * <span class="number">1000</span>), <span class="built_in">int</span>((best_x_int + <span class="number">1</span>) * <span class="number">1000</span>)):</span><br><span class="line">       x_val = x / <span class="number">1000.0</span></span><br><span class="line">       left_side = x_val + y</span><br><span class="line">       right_side = math.sqrt(x_val**<span class="number">2</span> - <span class="number">111</span>) + <span class="number">12</span></span><br><span class="line">       diff = <span class="built_in">abs</span>(left_side - right_side)</span><br><span class="line">       </span><br><span class="line">       <span class="comment"># 找到最小的差值对应的 x 值</span></span><br><span class="line">       <span class="keyword">if</span> diff &lt; min_diff:</span><br><span class="line">           min_diff = diff</span><br><span class="line">           best_x = x_val</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">return</span> <span class="built_in">round</span>(best_x, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">&gt;<span class="comment"># 给定 y 值</span></span><br><span class="line">&gt;y = <span class="number">50</span>  <span class="comment"># 你可以根据需要修改 y 的值</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="comment"># 计算并输出 x 的最小可能值</span></span><br><span class="line">&gt;x_min = find_min_x(y)</span><br><span class="line">&gt;<span class="built_in">print</span>(<span class="string">f&quot;x 的最小可能值是: <span class="subst">&#123;x_min&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="代码说明">代码说明：</h3>
+<ol type="1">
+<li><strong><code>find_min_x(y)</code></strong> 函数用于计算给定
+<code>y</code> 值时的最小 <code>x</code> 值。</li>
+<li><strong><code>start_x</code></strong> 和
+<strong><code>end_x</code></strong> 分别表示 <code>x</code>
+的整数区间的起始和结束值。</li>
+<li><strong><code>min_diff</code></strong>
+用于记录最小的差值，<strong><code>best_x</code></strong> 用于记录对应的
+<code>x</code> 值。</li>
+<li>在整数区间内遍历
+<code>x</code>，计算方程两边的差值，并找到差值最小的 <code>x</code>
+值的整数区间。</li>
+<li>在找到的整数区间内，以步进 <code>0.001</code> 的方式遍历
+<code>x</code>，计算方程两边的差值，并找到最小的差值对应的
+<code>x</code> 值。</li>
+<li>最后返回 <code>x</code> 的最小可能值，精确到两位小数。</li>
+</ol>
+<h3 id="示例输出">示例输出：</h3>
+<p>假设 <code>y = 50</code>，程序将输出 <code>x</code>
+的最小可能值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;x 的最小可能值是: <span class="number">10.12</span></span><br></pre></td></tr></table></figure>
+<p>你可以根据需要修改 <code>y</code> 的值来得到不同的结果。</p>
+</blockquote>
+<p>其实之前问了好几遍了, 都用的二分法, 但是得出的结果要么最小, 要么最大.
+Debug 一下发现这个方程用不了二分法解 (左右相差绝对值会单调增加). 本着
+当今计算机性能严重过剩 的信条, 就出现了文中的选择枚举法. 反正只跑一次,
+不缺时间.jpg</p>
+<h2 id="程序改进">程序改进</h2>
+<p>为了保险 <del>(其实就是懒得优化)</del></p>
+<ol type="1">
+<li>(这是真的优化) 因为误差绝对值单调增加, 所以下一个 左右边差值 大于
+最小差值 直接 break.</li>
+<li>整数附近 0.001 步进枚举的范围增加了一些, 开始的整数减 2, 结束整数加
+2.</li>
+<li>精确枚举时如果到最后 左右边差值 还是大于 0.01 (意味着还需要增加 x),
+输出 -1 (满足不了).</li>
+<li>for 循环输出当 y 为 10 和 12 步进 0.1 的每一个解, 用 format
+做了一个简易表格.</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_min_x</span>(<span class="params">y</span>):</span><br><span class="line">    min_diff = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">    best_x = <span class="number">0.0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 从 sqrt(111) 开始到 110 - y 的所有整数带入 x</span></span><br><span class="line">    start_x = <span class="built_in">int</span>(math.sqrt(<span class="number">111</span>)) + <span class="number">1</span></span><br><span class="line">    end_x = <span class="built_in">int</span>(<span class="number">55</span> - y)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍历整数区间</span></span><br><span class="line">    <span class="keyword">for</span> x_int <span class="keyword">in</span> <span class="built_in">range</span>(start_x, end_x + <span class="number">1</span>):</span><br><span class="line">        <span class="comment"># 计算方程两边的差值</span></span><br><span class="line">        left_side = x_int + y</span><br><span class="line">        right_side = math.sqrt(x_int ** <span class="number">2</span> - <span class="number">111</span>) + <span class="number">12</span></span><br><span class="line">        diff = <span class="built_in">abs</span>(left_side - right_side)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 找到差值最小的 x 值的整数区间</span></span><br><span class="line">        <span class="keyword">if</span> diff &lt; min_diff:</span><br><span class="line">            min_diff = diff</span><br><span class="line">            best_x_int = x_int</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    min_diff = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 在 best_x_int 的附近以步进 0.001 的方式带入 x</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>((best_x_int -<span class="number">2</span>) * <span class="number">1000</span>), <span class="built_in">int</span>((best_x_int + <span class="number">2</span>) * <span class="number">1000</span>)):</span><br><span class="line">        x_val = x / <span class="number">1000.0</span></span><br><span class="line">        left_side = x_val + y</span><br><span class="line">        right_side = math.sqrt(x_val ** <span class="number">2</span> - <span class="number">111</span>) + <span class="number">12</span></span><br><span class="line">        diff = <span class="built_in">abs</span>(left_side - right_side)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 找到最小的差值对应的 x 值</span></span><br><span class="line">        <span class="keyword">if</span> diff &lt; min_diff:</span><br><span class="line">            min_diff = diff</span><br><span class="line">            best_x = x_val</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> min_diff &gt;= <span class="number">0.01</span>:</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">round</span>(best_x, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 给定 y 值</span></span><br><span class="line"><span class="comment"># y = 11.4  # 你可以根据需要修改 y 的值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 值少于 10 个字符用空格填充 (冒号小于号之间的字符)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;: &lt;10&#125;|&#123;: &lt;10&#125;&quot;</span>.<span class="built_in">format</span>(<span class="string">&quot;x&quot;</span>, <span class="string">&quot;y&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算并输出 x 的最小可能值</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>, <span class="number">121</span>):</span><br><span class="line">    x_min = find_min_x(i/<span class="number">10</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;: &lt;10&#125;|&#123;: &lt;10&#125;&quot;</span>.<span class="built_in">format</span>(x_min, i/<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<p>输出:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">x         |y         </span><br><span class="line">28.75     |10.0      </span><br><span class="line">30.16     |10.1      </span><br><span class="line">31.73     |10.2      </span><br><span class="line">33.5      |10.3      </span><br><span class="line">35.49     |10.4      </span><br><span class="line">37.75     |10.5      </span><br><span class="line">40.34     |10.6      </span><br><span class="line">43.34     |10.7      </span><br><span class="line">-1        |10.8      </span><br><span class="line">-1        |10.9      </span><br><span class="line">-1        |11.0      </span><br><span class="line">-1        |11.1      </span><br><span class="line">-1        |11.2      </span><br><span class="line">-1        |11.3      </span><br><span class="line">-1        |11.4      </span><br><span class="line">-1        |11.5      </span><br><span class="line">-1        |11.6      </span><br><span class="line">-1        |11.7      </span><br><span class="line">-1        |11.8      </span><br><span class="line">-1        |11.9      </span><br><span class="line">-1        |12.0      </span><br></pre></td></tr></table></figure>
+<h2 id="后记">后记</h2>
+<p>用上了再说吧, 想着一个小风机或许不需要导轨限位呢 ( ).
+不过解决了问题还是很开心的. 超级感谢🐯同学提供的思路🙏.</p>
+<h2 id="等等-为什么没有想到-这是一个可以画图的函数呢">等等,
+为什么没有想到 这是一个可以画图的函数呢?</h2>
+<figure>
+<img src="../images/computer-perf-od-1/image-20250305122012115.png"
+alt="image-20250305122012115" />
+<figcaption aria-hidden="true">image-20250305122012115</figcaption>
+</figure>
+<h2 id="section">😭</h2>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <span itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</span>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+            
+            
+                <div class="post-actions text-center clearfix" id="post-actions">
+                
+                
+                    <a class="share" href="javascript:;" onclick="krOpenShareModal()"><i class="fa fa-share-alt"></i> 分享</a>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/AI-%E5%BE%88%E5%AE%9E%E7%94%A8/" rel="tag">AI 很实用</a>, <a class="tag-none-link" href="/tags/DI/" rel="tag">DI</a>, <a class="tag-none-link" href="/tags/DeepSeek/" rel="tag">DeepSeek</a>, <a class="tag-none-link" href="/tags/Python/" rel="tag">Python</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2025-03-05T05:18:44.115Z" itemprop="dateModified">最后编辑：2025-03-05</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" Android Studio 添加 Vector Asset 不显示 / 只显示少量图标 怎么办?" href="/2025/02/09/android-studio-icons-metadata/"><i class="fa fa-angle-left"></i> 上一篇</a>
+            </div>
+            
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+            
+                
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/favicon.jpg" alt="hyhcrh" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">hyhcrh的鱼罐头</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                3
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                5
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                6
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%9B%A0"><span class="toc-text">起因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E5%8C%96%E9%97%AE%E9%A2%98"><span class="toc-text">抽象化问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%A3%E6%96%B9%E7%A8%8B-%E5%8E%9F%E5%A7%8B"><span class="toc-text">用计算机解方程 (原始)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E"><span class="toc-text">代码说明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="toc-text">示例输出：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%94%B9%E8%BF%9B"><span class="toc-text">程序改进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-text">后记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%89%E7%AD%89-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89%E6%83%B3%E5%88%B0-%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E7%94%BB%E5%9B%BE%E7%9A%84%E5%87%BD%E6%95%B0%E5%91%A2"><span class="toc-text">等等,
+为什么没有想到 这是一个可以画图的函数呢?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#section"><span class="toc-text">😭</span></a></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Development/">Development</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Development/Android/">Android</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trivia/">Trivia</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/AI-%E5%BE%88%E5%AE%9E%E7%94%A8/" style="font-size: 0.6em;">AI 很实用</a> <a href="/tags/Android/" style="font-size: 0.6em;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 0.6em;">Android Studio</a> <a href="/tags/DI/" style="font-size: 0.6em;">DI</a> <a href="/tags/DeepSeek/" style="font-size: 0.6em;">DeepSeek</a> <a href="/tags/Python/" style="font-size: 0.6em;">Python</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2025/03/04/computer-perf-od-1/"><i class="fa fa-book"></i> 滑轮导轨宽度计算 - 一次计算机性能滥用记录</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2025/02/09/android-studio-icons-metadata/"><i class="fa fa-book"></i> Android Studio 添加 Vector Asset 不显示 / 只显示少量图标 怎么办?</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/11/04/welcome/"><i class="fa fa-book"></i> Hi there!</a>
+            
+          
+        
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+            
+
+        
+
+                </div>
+    </div>
+</div>
+
+<footer>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                            <li>
+                                <a href="mailto:hyhcrh@gmail.com" target="_blank" rel="nofollow">
+                                    <i class="fa fa-envelope"></i>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://github.com/hyhcrh" target="_blank" rel="nofollow">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://twitter.com/hyhcrh" target="_blank" rel="nofollow">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="/atom.xml" target="_blank" rel="nofollow">
+                                    <i class="fa fa-rss"></i>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2025 hyhcrh-core dump 版权所有.</li>
+                            <li>本站已在风雨中飘摇<span id="kr-since">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>自豪地使用 <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a> 主题</li>
+                            <li>站点由 <a href="https://github.com/hyhcrh/" target="_blank">hyhcrh</a> 用 <i class="fa fa-heart" style="color:#d43f57"></i> 搭建</li>
+                        </div>
+                        <!-- 额外的追加注入项 -->
+                        
+                            <div>
+                                
+                                    <li>由 <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a> 强力驱动</li>
+                                
+                                    <li>在 <a href="https://github.io" target="_blank">Github Pages</a> 暖心托管</li>
+                                
+                            </div>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                <div class="box theme-box" id="theme-toggle">
+                    <span class="fa fa-adjust"></span>
+                </div>
+            </div>
+            <div id="gotop-box" class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+
+
+
+    <div id="kr-share-modal" class="kr-modal">
+    <div class="kr-modal-bg" onclick="krCloseShareModal()"></div>
+    <div class="kr-modal-content">
+        <div class="kr-modal-header">
+            <div class="kr-modal-icon">
+                <i class="fa fa-share-alt"></i>
+            </div>
+            <div class="kr-modal-title">分享这一刻</div>
+            <button class="kr-modal-close" onclick="krCloseShareModal()">
+                <i class="fa fa-times-circle"></i>
+            </button>
+        </div>
+        <div class="kr-modal-body">
+            <div class="kr-share-message">让朋友们也来瞅瞅！</div>
+            <div class="kr-share-qr" id="kr-share-qr"></div>
+            <div class="kr-share-platforms">
+                
+                    <button class="kr-share-platform-button" style="color: #62b6e7;" title="喵窝" onclick="krShareModalOpenPlatform('https://mastodon.social/share?text=%3E%20$TITLE%0A%3E%0A%3E%20$SUMMARY%0A----%20$SITE%0A%0A$URL')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 216.4144 232.00976"><path fill="#2b90d9" d="M211.80734 139.0875c-3.18125 16.36625-28.4925 34.2775-57.5625 37.74875-15.15875 1.80875-30.08375 3.47125-45.99875 2.74125-26.0275-1.1925-46.565-6.2125-46.565-6.2125 0 2.53375.15625 4.94625.46875 7.2025 3.38375 25.68625 25.47 27.225 46.39125 27.9425 21.11625.7225 39.91875-5.20625 39.91875-5.20625l.8675 19.09s-14.77 7.93125-41.08125 9.39c-14.50875.7975-32.52375-.365-53.50625-5.91875C9.23234 213.82 1.40609 165.31125.20859 116.09125c-.365-14.61375-.14-28.39375-.14-39.91875 0-50.33 32.97625-65.0825 32.97625-65.0825C49.67234 3.45375 78.20359.2425 107.86484 0h.72875c29.66125.2425 58.21125 3.45375 74.8375 11.09 0 0 32.975 14.7525 32.975 65.0825 0 0 .41375 37.13375-4.59875 62.915"/><path fill="#fff" d="M177.50984 80.077v60.94125h-24.14375v-59.15c0-12.46875-5.24625-18.7975-15.74-18.7975-11.6025 0-17.4175 7.5075-17.4175 22.3525v32.37625H96.20734V85.42325c0-14.845-5.81625-22.3525-17.41875-22.3525-10.49375 0-15.74 6.32875-15.74 18.7975v59.15H38.90484V80.077c0-12.455 3.17125-22.3525 9.54125-29.675 6.56875-7.3225 15.17125-11.07625 25.85-11.07625 12.355 0 21.71125 4.74875 27.8975 14.2475l6.01375 10.08125 6.015-10.08125c6.185-9.49875 15.54125-14.2475 27.8975-14.2475 10.6775 0 19.28 3.75375 25.85 11.07625 6.36875 7.3225 9.54 17.22 9.54 29.675"/></svg>
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script defer src="/js/kr-modal/share.min.js"></script>
+
+
+
+<!-- 额外的追加注入项 -->
+
+
+        <script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+  <script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+
+
+
+  <script defer src="/vendors/viewerjs@1.11.6/dist/viewer.min.js"></script>
+
+
+<script defer src="/js/kr-core.min.js"></script>
+
+
+  <script defer src="/js/kr-pjax.min.js"></script>
+
+
+<!-- 额外的追加注入项 -->
+
+
+    </body>
+</html>

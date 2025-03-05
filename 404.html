@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   
-    <link rel="icon" href="/assets/favicon.jpg">
+    <link rel="icon" href="/images/favicon.jpg">
   
   
   <title>这个页面走丢了呢… | hyhcrh-core dump</title>
@@ -52,19 +52,19 @@
   <style>
     
       .kratos-cover.kratos-cover-2 {
-        background-image: url('/images/monterey_dark.jpg');
+        background-image: url('/images/monterey_dark.webp');
       }
       html[data-theme="dark"] .kratos-cover.kratos-cover-2 {
-        background-image: url('/images/monterey_dark.jpg');
+        background-image: url('/images/monterey_dark.webp');
       }
     
     
       @media(min-width:768px) {
         body.custom-background {
-          background-image: url('/images/monterey_light.jpg');
+          background-image: url('/images/monterey_light.webp');
         }
         html[data-theme="dark"] body.custom-background {
-          background-image: url('/images/monterey_dark.jpg');
+          background-image: url('/images/monterey_dark.webp');
         }
       }
     
@@ -81,6 +81,16 @@
   <!-- 额外的追加注入项 -->
   
     <meta name="google-site-verification" content="uKVa7HuXlnLYH3UjlP_h9b1A4oQFBaq1dMntVCvWJWo" />
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
 
   
 <meta name="generator" content="Hexo 7.3.0"></head>
@@ -297,40 +307,6 @@
 </footer>
 </div>
 </div>
-
-
-    <div id="kr-donate-modal" class="kr-modal">
-    <div class="kr-modal-bg" onclick="krCloseDonateModal()"></div>
-    <div class="kr-modal-content">
-        <div class="kr-modal-header">
-            <div class="kr-modal-icon">
-                <i class="fa fa-bitcoin"></i>
-            </div>
-            <div class="kr-modal-title">赞助喵</div>
-            <button class="kr-modal-close" onclick="krCloseDonateModal()">
-                <i class="fa fa-times-circle"></i>
-            </button>
-        </div>
-        <div class="kr-modal-body">
-            <div class="kr-donate-message">非常感谢您的喜欢！ <i class="fa fa-heart" style="color:#d43f57"></i></div>
-            <div class="kr-donate-qr" id="kr-donate-qr">
-                
-                    <img class="kr-donate-placeholder" src="https://dev.krt.moe/demo-assets/donate.webp" alt="赞助喵" />
-                
-            </div>
-            <div class="kr-donate-platforms">
-                
-                    
-                        <button class="kr-donate-platform-button" style="color: skyblue;" title="模拟支付" onclick="krDonateModalShowPlatformQR('example_payment', 'skyblue')">
-                            <i class="fa fa-credit-card"></i>
-                        </button>
-                    
-                
-            </div>
-        </div>
-    </div>
-</div>
-<script defer src="/js/kr-modal/donate.min.js"></script>
 
 
 

@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   
-    <link rel="icon" href="/assets/favicon.jpg">
+    <link rel="icon" href="/images/favicon.jpg">
   
   
   <title>Android Studio 添加 Vector Asset 不显示 / 只显示少量图标 怎么办? | hyhcrh-core dump</title>
@@ -27,7 +27,7 @@
 <meta property="og:description" content="&lt;SDK文件夹&gt;&#x2F;icons&#x2F;material&#x2F;icons_metadata.txt 的锅">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-02-09T07:12:19.000Z">
-<meta property="article:modified_time" content="2025-02-09T12:41:51.531Z">
+<meta property="article:modified_time" content="2025-03-05T05:15:02.269Z">
 <meta property="article:author" content="hyhcrh">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Android Studio">
@@ -58,19 +58,19 @@
   <style>
     
       .kratos-cover.kratos-cover-2 {
-        background-image: url('/images/monterey_dark.jpg');
+        background-image: url('/images/monterey_dark.webp');
       }
       html[data-theme="dark"] .kratos-cover.kratos-cover-2 {
-        background-image: url('/images/monterey_dark.jpg');
+        background-image: url('/images/monterey_dark.webp');
       }
     
     
       @media(min-width:768px) {
         body.custom-background {
-          background-image: url('/images/monterey_light.jpg');
+          background-image: url('/images/monterey_light.webp');
         }
         html[data-theme="dark"] body.custom-background {
-          background-image: url('/images/monterey_dark.jpg');
+          background-image: url('/images/monterey_dark.webp');
         }
       }
     
@@ -87,6 +87,16 @@
   <!-- 额外的追加注入项 -->
   
     <meta name="google-site-verification" content="uKVa7HuXlnLYH3UjlP_h9b1A4oQFBaq1dMntVCvWJWo" />
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
 
   
 <meta name="generator" content="Hexo 7.3.0"></head>
@@ -183,7 +193,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            564
+                            560
                         
                         字
                     </li>
@@ -194,9 +204,9 @@
         </header>
         <div class="kratos-page-content kr-post">
             
-            <div id="expire-alert" class="alert alert-warning hidden" role="alert" data-after-days="90">
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert" data-after-days="180">
                 <div class="icon"><i class="fa fa-history"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1739104911531"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1741151702269"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -206,35 +216,47 @@
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><code>&lt;SDK文件夹&gt;/icons/material/icons_metadata.txt</code> 的锅</p>
+            <div itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><code>&lt;SDK文件夹&gt;/icons/material/icons_metadata.txt</code>
+的锅</p>
 <span id="more"></span>
-
-<hr>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol>
+<hr />
+<h2 id="解决方案">解决方案</h2>
+<ol type="1">
 <li>关闭 Vector Asset 窗口.</li>
-<li>打开 SDK 文件夹 ( <code>~/Android/Sdk</code> ), 进入 <code>icons/material/</code>, 删除 <code>icons_metadata.txt</code> .</li>
+<li>打开 SDK 文件夹 ( <code>~/Android/Sdk</code> ), 进入
+<code>icons/material/</code>, 删除 <code>icons_metadata.txt</code>
+.</li>
 <li>打开 Vector Asset 窗口, 等待其生成图标.</li>
-<li><strong>窗口应当生成很多图标</strong>. 如果还是没有 &#x2F; 很少, 那么可以关闭这个页面了.</li>
+<li><strong>窗口应当生成很多图标</strong>. 如果还是没有 / 很少,
+那么可以关闭这个页面了.</li>
 <li>此时把 <code>icons_metadata.txt</code> 设为所有人只读即可.</li>
 </ol>
-<p>附赠 Windows &#x2F; macOS 默认 SDK 位置:</p>
+<p>附赠 Windows / macOS 默认 SDK 位置:</p>
 <table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 89%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>系统</th>
 <th>默认 SDK 位置</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Windows</td>
 <td><code>%USERPROFILE\Android\Sdk\</code><br /><code>C:\Users\&lt;用户名&gt;\Android\Sdk\</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>macOS</td>
-<td><code>~/Library/Android/sdk</code> <br /><code>/Users/&lt;用户名&gt;/Library/Android/sdk</code></td>
+<td><code>~/Library/Android/sdk</code>
+<br /><code>/Users/&lt;用户名&gt;/Library/Android/sdk</code></td>
 </tr>
-</tbody></table>
-<p>来自 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/64382564/how-i-fix-nothing-to-show-in-my-vector-asset-in-android-studio">https://stackoverflow.com/questions/64382564/how-i-fix-nothing-to-show-in-my-vector-asset-in-android-studio</a></p>
+</tbody>
+</table>
+<p>来自
+https://stackoverflow.com/questions/64382564/how-i-fix-nothing-to-show-in-my-vector-asset-in-android-studio</p>
 </div>
         </div>
         
@@ -248,8 +270,6 @@
             
                 <div class="post-actions text-center clearfix" id="post-actions">
                 
-                    <a class="donate" href="javascript:;" onclick="krOpenDonateModal()"><i class="fa fa-bitcoin"></i> 打赏</a>
-                
                 
                     <a class="share" href="javascript:;" onclick="krOpenShareModal()"><i class="fa fa-share-alt"></i> 分享</a>
                 
@@ -261,7 +281,7 @@
                     <a class="tag-none-link" href="/tags/Android/" rel="tag">Android</a>, <a class="tag-none-link" href="/tags/Android-Studio/" rel="tag">Android Studio</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-02-09T12:41:51.531Z" itemprop="dateModified">最后编辑：2025-02-09</time>
+                    <time datetime="2025-03-05T05:15:02.269Z" itemprop="dateModified">最后编辑：2025-03-05</time>
                 </div>
             </div>
         </footer>
@@ -273,6 +293,10 @@
                 <a title=" Hi there!" href="/2024/11/04/welcome/"><i class="fa fa-angle-left"></i> 上一篇</a>
             </div>
             
+            
+            <div class="nav-next clearfix">
+                <a title=" 滑轮导轨宽度计算 - 一次计算机性能滥用记录" href="/2025/03/04/computer-perf-od-1/">下一篇 <i class="fa fa-angle-right"></i></a>
+            </div>
             
         </nav>
     
@@ -294,7 +318,7 @@
     <div class="photo-background"></div>
     <div class="photo-wrapper clearfix">
         <div class="photo-wrapper-tip text-center">
-            <img class="about-photo" src="/assets/favicon.jpg" alt="hyhcrh" loading="lazy" decoding="auto" />
+            <img class="about-photo" src="/images/favicon.jpg" alt="hyhcrh" loading="lazy" decoding="auto" />
         </div>
     </div>
     <div class="textwidget">
@@ -306,7 +330,7 @@
                 文章
             </span>
             <span class="count">
-                2
+                3
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -314,7 +338,7 @@
                 分类
             </span>
             <span class="count">
-                4
+                5
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -322,7 +346,7 @@
                 标签
             </span>
             <span class="count">
-                2
+                6
             </span>
         </a>
     </div>
@@ -345,7 +369,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Development/">Development</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Development/Android/">Android</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trivia/">Trivia</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Development/">Development</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Development/Android/">Android</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/FAQ/">FAQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Trivia/">Trivia</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E8%AE%B0/">随记</a><span class="category-list-count">1</span></li></ul>
   </aside>
 
 
@@ -354,7 +378,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Android/" style="font-size: 0.6em;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 0.6em;">Android Studio</a>
+        <a href="/tags/AI-%E5%BE%88%E5%AE%9E%E7%94%A8/" style="font-size: 0.6em;">AI 很实用</a> <a href="/tags/Android/" style="font-size: 0.6em;">Android</a> <a href="/tags/Android-Studio/" style="font-size: 0.6em;">Android Studio</a> <a href="/tags/DI/" style="font-size: 0.6em;">DI</a> <a href="/tags/DeepSeek/" style="font-size: 0.6em;">DeepSeek</a> <a href="/tags/Python/" style="font-size: 0.6em;">Python</a>
       </div>
   </aside>
 
@@ -365,6 +389,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2025/03/04/computer-perf-od-1/"><i class="fa fa-book"></i> 滑轮导轨宽度计算 - 一次计算机性能滥用记录</a>
+            
+          
         
           
           
@@ -469,40 +499,6 @@
 </footer>
 </div>
 </div>
-
-
-    <div id="kr-donate-modal" class="kr-modal">
-    <div class="kr-modal-bg" onclick="krCloseDonateModal()"></div>
-    <div class="kr-modal-content">
-        <div class="kr-modal-header">
-            <div class="kr-modal-icon">
-                <i class="fa fa-bitcoin"></i>
-            </div>
-            <div class="kr-modal-title">赞助喵</div>
-            <button class="kr-modal-close" onclick="krCloseDonateModal()">
-                <i class="fa fa-times-circle"></i>
-            </button>
-        </div>
-        <div class="kr-modal-body">
-            <div class="kr-donate-message">非常感谢您的喜欢！ <i class="fa fa-heart" style="color:#d43f57"></i></div>
-            <div class="kr-donate-qr" id="kr-donate-qr">
-                
-                    <img class="kr-donate-placeholder" src="https://dev.krt.moe/demo-assets/donate.webp" alt="赞助喵" />
-                
-            </div>
-            <div class="kr-donate-platforms">
-                
-                    
-                        <button class="kr-donate-platform-button" style="color: skyblue;" title="模拟支付" onclick="krDonateModalShowPlatformQR('example_payment', 'skyblue')">
-                            <i class="fa fa-credit-card"></i>
-                        </button>
-                    
-                
-            </div>
-        </div>
-    </div>
-</div>
-<script defer src="/js/kr-modal/donate.min.js"></script>
 
 
 
